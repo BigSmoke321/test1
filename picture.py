@@ -1,46 +1,50 @@
 from graphics import *
-win=GraphWin("MyWin",1000,1000)
+win=GraphWin("MyWin",1600,800)
 
-r=Rectangle(Point(250,500),Point(750,900))
-r.setFill("#B97A57")
+# x, y - up left corner of the base of house
 
-r1=Rectangle(Point(300,250),Point(400,500))
-r1.setFill("#7F7F7F")
+def House(x, y, kx, ky, colorhome, colortube, colorroof, colordoor, colorhand, colorwindow1, colorwindow2, colorwindow3):
 
-p=Polygon(Point(250,500),Point(500,200),Point(750,500))
-p.setFill("#ED1C24")
+	home = Rectangle(Point(x, y), Point(x + 500*kx, y + 400*ky))
+	home.setFill(colorhome)
 
-r2=Rectangle(Point(275,600),Point(450,900))
-r2.setFill("#482425")
+	tube=Rectangle(Point(x + 50*kx, y - 250*ky), Point(x + 150*kx, y))
+	tube.setFill(colortube)
 
-c=Circle(Point(425,750),10)
-c.setFill("#FFF200")
+	roof=Polygon(Point(x, y), Point(x + 250*kx, y - 300*ky), Point(x + 500*kx, y))
+	roof.setFill(colorroof)
 
-r3=Rectangle(Point(520,620),Point(720,820))
-r3.setFill("#99D9EA")
+	door=Rectangle(Point(x + 25*kx, y + 100*ky), Point(x + 200*kx, y + 400*ky))
+	door.setFill(colordoor)
 
-l=Line(Point(620,620),Point(620,820))
+	hand=Circle(Point(x + 175*kx, y + 250*ky), 10*kx)
+	hand.setFill(colorhand)
 
-l1=Line(Point(620,660),Point(720,660))
+	window1 = Rectangle(Point(x + 270*kx, y + 120*ky), Point(x + 370*kx, y + 320*ky))
+	window1.setFill(colorwindow1)
 
-r4=Rectangle(Point(0,850),Point(1000,1000))
-r4.setFill("green")
+	window2 = Rectangle(Point(x + 370*kx, y + 120*ky), Point(x + 470*kx, y + 160*ky))
+	window2.setFill(colorwindow2)
 
-c1=Circle(Point(900,100),50)
-c1.setFill("yellow")
+	window3 = Rectangle(Point(x + 370*kx, y + 160*ky), Point(x + 470*kx, y + 320*ky))
+	window3.setFill(colorwindow3)
+
+	home.draw(win)
+	tube.draw(win)
+	roof.draw(win)
+	door.draw(win)
+	hand.draw(win)
+	window1.draw(win)
+	window2.draw(win)
+	window3.draw(win)
 
 
+#START drawing
 
-r4.draw(win)
-c1.draw(win)
-r.draw(win)
-r1.draw(win)
-p.draw(win)
-r2.draw(win)
-c.draw(win)
-r3.draw(win)
-l.draw(win)
-l1.draw(win)
+House(550, 360, 1, 1, "#B97A57", "#7F7F7F", "#ED1C24", "#482425", "#FFF200", "#d5a1d2", "#00e800", "#f8dd86")
+House(25, 450, 1, 0.5, "#B97A57", "#7F7F7F", "#00e800", "#482425", "#FFF200", "#d1d6a0", "#9ad9e8", "#8694f7")
+House(1200, 350, 0.5, 0.6, "#B97A57", "#f8dd86", "#f886e8", "#482425", "#FFF200", "#d7f887", "#d5a1d2", "#9ad9ea")
+House(610, 50, 0.15, 0.15, "#B97A57", "#f8dd86", "#f886e8", "#482425", "#FFF200", "#9ddceb", "#9ddceb", "#9ddceb")
 
 win.getMouse()
 win.close()
