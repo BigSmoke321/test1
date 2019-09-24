@@ -8,16 +8,16 @@ def House(x, y, kx, ky, colorhome, colortube, colorroof, colordoor, colorhand, c
 	home = Rectangle(Point(x, y), Point(x + 500*kx, y + 400*ky))
 	home.setFill(colorhome)
 
-	tube=Rectangle(Point(x + 50*kx, y - 250*ky), Point(x + 150*kx, y))
+	tube = Rectangle(Point(x + 50*kx, y - 250*ky), Point(x + 150*kx, y))
 	tube.setFill(colortube)
 
-	roof=Polygon(Point(x, y), Point(x + 250*kx, y - 300*ky), Point(x + 500*kx, y))
+	roof = Polygon(Point(x, y), Point(x + 250*kx, y - 300*ky), Point(x + 500*kx, y))
 	roof.setFill(colorroof)
 
-	door=Rectangle(Point(x + 25*kx, y + 100*ky), Point(x + 200*kx, y + 400*ky))
+	door = Rectangle(Point(x + 25*kx, y + 100*ky), Point(x + 200*kx, y + 400*ky))
 	door.setFill(colordoor)
 
-	hand=Circle(Point(x + 175*kx, y + 250*ky), 10*kx)
+	hand = Circle(Point(x + 175*kx, y + 250*ky), 10*kx)
 	hand.setFill(colorhand)
 
 	window1 = Rectangle(Point(x + 270*kx, y + 120*ky), Point(x + 370*kx, y + 320*ky))
@@ -39,12 +39,36 @@ def House(x, y, kx, ky, colorhome, colortube, colorroof, colordoor, colorhand, c
 	window3.draw(win)
 
 
+def Tree(x, y, kx, ky, colorcrown, colorstem):
+	
+	crown = Circle(Point(x, y), 75*kx)
+	crown.setFill(colorcrown)
+
+	stem = Polygon(Point(x, y - 20*ky), Point(x + 10*kx, y + 150*ky), Point(x - 10*kx, y + 150*ky), Point(x, y - 20*ky))
+	stem.setFill(colorstem)
+
+	crown.draw(win)
+	stem.draw(win)
+
+def Sun(x, y, kx, ky, color):
+
+	sun = Circle(Point(x, y), 75*kx)
+	sun.setFill(color)
+
+	sun.draw(win)
+
+
+
 #START drawing
 
 House(550, 360, 1, 1, "#B97A57", "#7F7F7F", "#ED1C24", "#482425", "#FFF200", "#d5a1d2", "#00e800", "#f8dd86")
 House(25, 450, 1, 0.5, "#B97A57", "#7F7F7F", "#00e800", "#482425", "#FFF200", "#d1d6a0", "#9ad9e8", "#8694f7")
 House(1200, 350, 0.5, 0.6, "#B97A57", "#f8dd86", "#f886e8", "#482425", "#FFF200", "#d7f887", "#d5a1d2", "#9ad9ea")
 House(610, 50, 0.15, 0.15, "#B97A57", "#f8dd86", "#f886e8", "#482425", "#FFF200", "#9ddceb", "#9ddceb", "#9ddceb")
+
+Tree(1200, 500, 1, 1, "#00e800", "#B97A57")
+
+Sun(100, 100, 1, 1, "#FFF200")
 
 win.getMouse()
 win.close()
